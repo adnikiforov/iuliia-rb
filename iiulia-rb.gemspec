@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email = ['a.d.nikiforov@gmail.com']
 
   spec.summary = 'Russian transliteration using nalgeon/iuliia schemas'
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage = 'https://github.com/adnikiforov/iuliia-rb'
   spec.license = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
