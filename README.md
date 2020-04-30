@@ -1,4 +1,4 @@
-# Iiulia
+# Iuliia
 
 Small gem to properly transliterate cyrillic to latin. Use https://github.com/nalgeon/iuliia for transliteration schemas.
 
@@ -7,7 +7,7 @@ Small gem to properly transliterate cyrillic to latin. Use https://github.com/na
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'iiulia-rb'
+gem 'iuliia-rb'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install iiulia-rb
+    $ gem install iuliia-rb
 
 ## Usage
 
