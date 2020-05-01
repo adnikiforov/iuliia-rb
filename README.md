@@ -2,6 +2,8 @@
 
 Small gem to properly transliterate cyrillic to latin. Use https://github.com/nalgeon/iuliia for transliteration schemas.
 
+![Ruby](https://github.com/adnikiforov/iuliia-rb/workflows/Ruby/badge.svg)
+
 ## Installation
 
 Add this line to your application's Gemfile:
