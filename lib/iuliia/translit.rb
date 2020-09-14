@@ -17,6 +17,8 @@ module Iuliia
     # Translit cyrillic string to latin representation
     # @return [String]
     def translit
+      return unless schema
+
       string.split(/\b/).map { |chunk| translit_chunk(chunk) }.join
     end
 

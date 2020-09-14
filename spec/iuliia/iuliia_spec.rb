@@ -7,10 +7,26 @@ describe Iuliia do
     let(:string) { 'whenever' }
     let(:schema) { Iuliia::Schema.available_schemas.sample[0] }
 
-    it 'does call for translit' do
-      expect_any_instance_of(Iuliia::Translit).to receive(:translit)
+    context 'with existing schema' do
+      before do
+        expect_any_instance_of(Iuliia::Translit).to receive(:translit)
+      end
 
-      described_class.translit(string, schema: schema)
+      it 'does call for translit' do
+        described_class.translit(string, schema: schema)
+      end
+    end
+
+    context 'without existing schema' do
+      let(:schema) { :non_existent_schema }
+
+      before do
+        expect_any_instance_of(Iuliia::Translit).to receive(:translit).and_return nil
+      end
+
+      it 'does not call for translit' do
+        described_class.translit(string, schema: schema)
+      end
     end
   end
 end

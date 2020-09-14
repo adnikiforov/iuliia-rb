@@ -3,7 +3,6 @@
 module Iuliia
   module Schema
     class << self
-
       # Fetch schema by schema name
       # @param schema_name [String]
       # @return [Iuliia::Schema]
@@ -28,6 +27,8 @@ module Iuliia
 
       def load_schema(name)
         JSON.parse(File.read("lib/schemas/#{name}.json"), object_class: OpenStruct, symbolize_names: true)
+      rescue Errno::ENOENT => e
+        puts "Failed to load schema. #{e.message}"
       end
 
       def load_schemas
