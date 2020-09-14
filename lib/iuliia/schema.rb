@@ -2,52 +2,35 @@
 
 module Iuliia
   module Schema
-    extend self
+    class << self
 
-    SCHEMA = Struct.new(
-      :description,
-      :url,
-      :mapping,
-      :prev_mapping,
-      :next_mapping,
-      :ending_mapping
-    )
-
-    def schema(schema_name)
-      schemas[schema_name]
-    end
-
-    def available_schemas
-      schemas.map do |schema_name, schema|
-        [schema_name, schema.description]
+      def [](schema_name)
+        schemas[schema_name]
       end
-    end
 
-    private
+      alias_method :schema, :[]
 
-    def schemas
-      @schemas ||= load_schemas
-    end
+      def available_schemas
+        load_schemas.transform_values(&:description).to_a
+      end
 
-    def load_schemas
-      Dir['lib/schemas/*.json'].map do |schema_file|
-        file = File.read(schema_file)
-        parse_and_create_schema(file)
-      end.reduce({}, :update)
-    end
+      private
 
-    def parse_and_create_schema(file)
-      parsed_data = JSON.parse(file)
-      schema = SCHEMA.new(
-        parsed_data['description'],
-        parsed_data['url'],
-        parsed_data['mapping'],
-        parsed_data['prev_mapping'],
-        parsed_data['next_mapping'],
-        parsed_data['ending_mapping']
-      )
+      def schemas
+        @schemas ||= Hash.new { |h, k| h[k] = load_schema(k) }
+      end
 
-      { parsed_data['name'] => schema }
+      def load_schema(name)
+        JSON.parse(File.read("lib/schemas/#{name}.json"),
+          object_class: OpenStruct, symbolize_names: true)
+      end
+
+      def load_schemas
+        Dir['lib/schemas/*.json'].map do |file|
+          schema = load_schema(File.basename(file, ".json"))
+          [schema.name, schema]
+        end.to_h
+      end
     end
   end
 end
