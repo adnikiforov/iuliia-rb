@@ -3,6 +3,7 @@
 module Iuliia
   class Translit
     ENDING_LENGTH = 2
+    private_constant :ENDING_LENGTH
 
     # Initialize transliterator engine with string and schema
     # @param string [String]
@@ -10,7 +11,7 @@ module Iuliia
     # @return [Iuliia::Translit]
     def initialize(string, schema)
       @string = string
-      @schema = Iuliia::Schema.schema(schema)
+      @schema = Iuliia::Schema[schema]
     end
 
     # Translit cyrillic string to latin representation

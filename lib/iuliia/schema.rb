@@ -11,10 +11,11 @@ module Iuliia
         schemas[schema_name]
       end
 
+      # @deprecated
       alias schema []
 
       # Return list of available schemas
-      # @return [Array<Iuliia::Schema]>]
+      # @return [Array]
       def available_schemas
         load_schemas.transform_values(&:description).to_a
       end
