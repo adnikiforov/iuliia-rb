@@ -8,6 +8,8 @@ module Iuliia
       # @param schema_name [String]
       # @return [Iuliia::Schema]
       def [](schema_name)
+        warn "[DEPRECATION] Gem has been renamed to 'iuliia'. Please, use 'iuliia' instead."
+
         schemas[schema_name]
       end
 
@@ -16,6 +18,8 @@ module Iuliia
       # Return list of available schemas
       # @return [Array<Iuliia::Schema]>]
       def available_schemas
+        warn "[DEPRECATION] Gem has been renamed to 'iuliia'. Please, use 'iuliia' instead."
+
         load_schemas.transform_values(&:description).to_a
       end
 

@@ -6,6 +6,8 @@ Small gem to properly transliterate cyrillic to latin. Use https://github.com/na
 
 ## Installation
 
+#### Gem has been renamed to `iuliia`. This is the last version of `iuliia-rb`. Please, use `iuliia` instead.
+
 Add this line to your application's Gemfile:
 
 ```ruby
