@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'iuliia/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'iuliia-rb'
+  spec.name = 'iuliia'
   spec.version = Iuliia::VERSION
   spec.authors = ['Andrey Nikiforov']
   spec.email = ['a.d.nikiforov@gmail.com']
