@@ -4,11 +4,17 @@ module Iuliia
   class Translit
     ENDING_LENGTH = 2
 
+    # Initialize transliterator engine with string and schema
+    # @param string [String]
+    # @param schema [Iuliia::Schema]
+    # @return [Iuliia::Translit]
     def initialize(string, schema)
       @string = string
       @schema = Iuliia::Schema.schema(schema)
     end
 
+    # Translit cyrillic string to latin representation
+    # @return [String]
     def translit
       string.split(/\b/).map { |chunk| translit_chunk(chunk) }.join
     end
