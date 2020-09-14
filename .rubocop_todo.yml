@@ -11,10 +11,10 @@
 # Include: **/*.gemspec
 Gemspec/RequiredRubyVersion:
   Exclude:
-    - 'iiulia-rb.gemspec'
+    - 'iiulia.gemspec'
 
 # Offense count: 1
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Exclude:
-    - 'iiulia-rb.gemspec'
+    - 'iiulia.gemspec'
