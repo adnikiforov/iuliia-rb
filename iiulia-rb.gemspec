@@ -10,17 +10,9 @@ Gem::Specification.new do |spec|
   spec.authors = ['Andrey Nikiforov']
   spec.email = ['a.d.nikiforov@gmail.com']
 
-  spec.summary = <<~SUMMARY
-    Russian transliteration using nalgeon/iuliia schemas
-    Gem has been renamed to 'iuliia'. This is the last version of 'iuliia-rb'. 
-    Please, use 'iuliia' instead.
-  SUMMARY
+  spec.summary = 'Russian transliteration using nalgeon/iuliia schemas'
   spec.homepage = 'https://github.com/adnikiforov/iuliia-rb'
   spec.license = 'MIT'
-  spec.post_install_message = <<~MESSAGE
-    ! The 'iuliia-rb' gem has been renamed to 'iuliia'. 
-    Version 0.2.1 is the last version of 'iuliia-rb'. Please, use 'iuliia' instead.
-  MESSAGE
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
