@@ -67,9 +67,9 @@ Iuliia.translit('Юлия, съешь ещё этих мягких францу�
 
 ## TODO
 
-* Add documentation
+* ~~Add documentation~~
 * Maybe some more specs
-* Implement reverse translit (not available for all schemas though)
+* Implement reverse translit (not available for all schemas though): https://github.com/adnikiforov/iuliia-rb/issues/3
 
 ## Development
 
