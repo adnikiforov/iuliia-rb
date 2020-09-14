@@ -1,0 +1,3 @@
+[submodule "lib/schemas"]
+	path = lib/schemas
+	url = https://github.com/nalgeon/iuliia
