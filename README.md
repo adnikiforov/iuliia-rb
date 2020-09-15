@@ -75,9 +75,46 @@ Iuliia.translit('Юлия, съешь ещё этих мягких францу�
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Check out repo:
+
+```
+git clone git@github.com:adnikiforov/iuliia-rb.git
+```
+
+Check out submodule with schemas:
+
+```
+git submodule update --init
+```
+
+Setup dependencies:
+
+```
+bin/setup
+```
+
+Run specs:
+
+```
+bundle exec rspec
+```
+
+Or open console to try it:
+
+```
+bin/console
+```
 
 To install this gem onto your local machine, run `bundle exec rake install`.
+
+## Support
+
+<p>
+  <a href="https://evrone.com/?utm_source=github&utm_campaign=iuliia-rb">
+    <img src="https://raw.githubusercontent.com/adnikiforov/iuliia-rb/master/priv/evrone-sponsored-logo.png"
+      alt="Sponsored by Evrone" width="210">
+  </a>
+</p>
 
 ## License
 
