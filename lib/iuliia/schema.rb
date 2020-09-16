@@ -26,9 +26,10 @@ module Iuliia
       end
 
       def load_schema(name)
-        JSON.parse(File.read("lib/schemas/#{name}.json"), object_class: OpenStruct, symbolize_names: true)
-      rescue Errno::ENOENT => e
-        puts "Failed to load schema. #{e.message}"
+        filename = "lib/schemas/#{name}.json"
+        raise Exceptions::NonExistentSchemaException unless File.exist?(filename)
+
+        JSON.parse(File.read(filename), object_class: OpenStruct, symbolize_names: true)
       end
 
       def load_schemas

@@ -19,13 +19,11 @@ describe Iuliia do
 
     context 'without existing schema' do
       let(:schema) { :non_existent_schema }
+      let(:error) { Iuliia::Exceptions::NonExistentSchemaException }
+      let(:error_message) { 'Specified schema does not exist' }
 
-      before do
-        expect_any_instance_of(Iuliia::Translit).to receive(:translit).and_return nil
-      end
-
-      it 'does not call for translit' do
-        described_class.translit(string, schema: schema)
+      it 'raises Exceptions::NonExistentSchemaException' do
+        expect { described_class.translit(string, schema: schema) }.to raise_error(error, error_message)
       end
     end
   end
