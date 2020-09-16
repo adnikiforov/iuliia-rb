@@ -3,7 +3,6 @@
 module Iuliia
   module Schema
     class << self
-
       # Fetch schema by schema name
       # @param schema_name [String]
       # @return [Iuliia::Schema]
@@ -27,7 +26,10 @@ module Iuliia
       end
 
       def load_schema(name)
-        JSON.parse(File.read("lib/schemas/#{name}.json"), object_class: OpenStruct, symbolize_names: true)
+        filename = "lib/schemas/#{name}.json"
+        raise Exceptions::NonExistentSchemaException unless File.exist?(filename)
+
+        JSON.parse(File.read(filename), object_class: OpenStruct, symbolize_names: true)
       end
 
       def load_schemas
