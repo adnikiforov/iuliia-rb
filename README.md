@@ -62,7 +62,7 @@ Iuliia::Schema.available_schemas
 Pick one and transliterate
 
 ```ruby
-Iuliia.translit('Юлия, съешь ещё этих мягких французских булок из Йошкар-Олы, да выпей алтайского чаю', schema: 'mvd_782')
+Iuliia.translate('Юлия, съешь ещё этих мягких французских булок из Йошкар-Олы, да выпей алтайского чаю', schema: 'mvd_782')
 
 "Yuliya, syesh' eshche etikh myagkikh frantsuzskikh bulok iz Yoshkar-Oly, da vypey altayskogo chayu"
 ```
