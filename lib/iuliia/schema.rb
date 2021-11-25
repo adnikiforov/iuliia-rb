@@ -21,19 +21,23 @@ module Iuliia
 
       private
 
+      def lib_dir
+        File.expand_path('..', __dir__)
+      end
+
       def schemas
         @schemas ||= Hash.new { |h, k| h[k] = load_schema(k) }
       end
 
       def load_schema(name)
-        filename = "lib/schemas/#{name}.json"
+        filename = "#{lib_dir}/schemas/#{name}.json"
         raise Exceptions::NonExistentSchemaException unless File.exist?(filename)
 
         JSON.parse(File.read(filename), object_class: OpenStruct, symbolize_names: true)
       end
 
       def load_schemas
-        Dir['lib/schemas/*.json'].map do |file|
+        Dir["#{lib_dir}/schemas/*.json"].map do |file|
           schema = load_schema(File.basename(file, '.json'))
           [schema.name, schema]
         end.to_h
