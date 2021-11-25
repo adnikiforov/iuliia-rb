@@ -24,5 +24,15 @@ describe Iuliia::Translit do
         end
       end
     end
+
+    context 'with latin chars' do
+      let(:schema) { 'telegram' }
+      let(:given) { 'Юлия, съешь ещё этих soft french булок из Vancouver City, да выпей алтайского TEA' }
+      let(:expected) { 'Iuliia, sesh esce etih soft french bulok iz Vancouver City, da vypei altaiskogo TEA' }
+
+      it 'transliterates strings correctly' do
+        expect(described_class.new(given, schema).translit).to eq(expected)
+      end
+    end
   end
 end

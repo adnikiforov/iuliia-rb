@@ -46,23 +46,29 @@ module Iuliia
         translit_char(stem.chars, char, index)
       end
 
-      camelcase(translited_stem.join)
+      string = translited_stem.join
+      return camelcase(translited_stem.join) unless upcase?(translited_stem.join)
+
+      string
     end
 
     def translit_char(chars, char, index)
+      return char unless /[А-Яа-яёЁ]/.match?(char)
+
       translited_char = translit_prev(chars, index)
       translited_char = translit_next(chars, index) if translited_char.nil?
       translited_char = schema.mapping[char.downcase] if translited_char.nil?
 
-      upcase?(char) ? translited_char.upcase : translited_char
+      upcase?(char) ? camelcase(translited_char.upcase) : translited_char
     end
 
     def translit_prev(chars, index)
-      prev_char = if index.positive?
-                    chars[index - 1..index].join.downcase
-                  else
-                    chars[index].downcase
-                  end
+      prev_char =
+        if index.positive?
+          chars[index - 1..index].join.downcase
+        else
+          chars[index].downcase
+        end
 
       schema.prev_mapping&.dig(prev_char)
     end
